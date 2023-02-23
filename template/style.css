@@ -30,4 +30,5 @@ nav .active {
 body {
     background-image: url("home-page.jpg");
     background-color: #cccccc;
+    background-size: 100% 100%;
    }

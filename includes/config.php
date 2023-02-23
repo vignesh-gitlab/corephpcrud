@@ -8,7 +8,7 @@
 function config($key = '')
 {
     $config = [
-        'name' => 'Simple PHP Website',
+        'name' => 'Welcome to Vick Vision',
         'site_url' => '',
         'pretty_uri' => false,
         'nav_menu' => [

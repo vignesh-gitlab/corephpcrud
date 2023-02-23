@@ -27,4 +27,7 @@ nav .active {
         padding: 30px 40px;
     }
 }
-    
+body {
+    background-image: url("home-page.jpg");
+    background-color: #cccccc;
+   }

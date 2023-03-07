@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">
 </head>
 <body>
+    <a href="index.php">Home</a>
     <form method="POST" action="login.php" autocomplete="off">
     <h2>Login</h2><br/>
     <label>User Name</label>
@@ -30,7 +31,12 @@ if(isset($_POST["submit"])){
     $sql="SELECT * FROM `user_table` WHERE email='".$username."' and password='".$user_password."'";
     $result=$conn->query($sql);
     if($result->num_rows==1){
-       header("location: user_home.php");
+      // header("location: user_home.php");
+?>
+<script type="text/javascript">
+window.location="user_home.php";
+</script>
+<?php
     }else{
         echo"Invalid User Details";
     }

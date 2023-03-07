@@ -8,7 +8,9 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">
 </head>
 <body>
-    <h2 align="center">Welcome to our Site</h2>
-    <a href="login.php"><h3 align="right">Login</h3></a>
+    <table align="center" width=80%>
+    <tr><th><h2 align="center">Welcome to our Site</h2></th></tr>
+   <tr><td> <a href="login.php"><h3 align="right">Login</h3></a></td></tr>
+   <tr><td><a href="register.php"><h3 align="right">Register</h3></a></td></tr>
 </body>
 </html>

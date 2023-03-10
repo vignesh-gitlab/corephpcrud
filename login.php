@@ -8,18 +8,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Page</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">
+    <!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">-->
 </head>
 <body>
-    <a href="index.php">Home</a>
-    <form method="POST" action="login.php" autocomplete="off">
-    <h2>Login</h2><br/>
-    <label>User Name</label>
-    <input type="text" name="username" value=""><br/><br/>
-    <label>Password</label>
-    <input type="password" name="password" value=""<br/><br/>
-    <input type="submit" name="submit" value="Submit">
-    <input type="reset" name="reset" value="Reset">
+   <a href="index.php">Home</a>
+   <form method="POST" action="login.php" autocomplete="off">
+   <table>
+   <tr><th><h2>Login</h2></th></tr>
+   <tr><td>User Name:</td>
+   <td><input type="text" name="username" value=""></td></tr>
+   <tr><td>Password:</td>
+   <td><input type="password" name="password" value=""></td></tr>
+   <tr><td><input type="submit" name="submit" value="Submit"></td>
+   <td><input type="reset" name="reset" value="Reset"></td></tr>
+</table>
 </form>
 </body>
 </html>
@@ -31,12 +33,22 @@ if(isset($_POST["submit"])){
     $sql="SELECT * FROM `user_table` WHERE email='".$username."' and password='".$user_password."'";
     $result=$conn->query($sql);
     if($result->num_rows==1){
-      // header("location: user_home.php");
-?>
-<script type="text/javascript">
-window.location="user_home.php";
-</script>
-<?php
+        $row=$result->fetch_assoc();
+        if($row["user_type"]=="normal"){
+            ?>
+            <script>
+            window.location.href="user_home.php?msg=success";
+            </script>
+            <?php
+        }else if($row["user_type"]=="admin"){
+            ?>
+            <script>
+            window.location.href="admin_home.php";
+            </script>
+            <?php
+        }else{
+            echo "Invalid user type";
+        }
     }else{
         echo"Invalid User Details";
     }

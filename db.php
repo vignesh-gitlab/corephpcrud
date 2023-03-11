@@ -1,5 +1,5 @@
 <?php
-    $servername="docker-sql_db_1";
+    $servername="php-cicd_db_1";
     $user_name="root";
     $password="root";
     $database="test";
